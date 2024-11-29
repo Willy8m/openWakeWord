@@ -5,11 +5,11 @@ The use of synthetic data for training STT or wakeword/phrase detection models i
 1) [Speech Model Pre-training for End-to-End Spoken Language Understanding](https://arxiv.org/abs/1904.03670)
 2) [Using Speech Synthesis to Train End-to-End Spoken Language Understanding Models](https://arxiv.org/abs/1910.09463)
 
-In general, the concept of pre-training a model on large speech datasets and then fine-tuning another smaller model on top of this (typically frozen) backbone with use-case specific data is a well-documented approach more broadly that seems to work well for many different applications.
+In general, the concept of pre-training a model on large speech datasets and then fine-tuning another smaller model on top of this (typically frozen) backbone with use-case-specific data is a well-documented approach that more broadly seems to work well for many different applications.
 
 # Choosing TTS Models
 
-During the development of openWakeWord, much effort went into identifying STT models that could produce high-quality speech to use as training data. In particular, two features are assumed to be important to produce robust wakeword models:
+During the development of openWakeWord, much effort went into identifying TTS models that could produce high-quality speech to use as training data. In particular, two features are assumed to be important to produce robust wakeword models:
 
 1) Random variability in the generated speech (in practice, models based on sampling work well)
 2) Multi-speaker models
