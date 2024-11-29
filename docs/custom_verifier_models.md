@@ -10,7 +10,7 @@ There are trade-offs to this approach, however. In general, training a custom ve
 
 # Verifier Model Design
 
-The custom verifier models are designed to be very lightweight and easy to train. For the current version of openWakeWord, the verifier models are simple logistic regression binary classifiers the take in the shared audio features from the openWakeWord preprocessing stage and returns a score between 0 and 1 indicating whether the audio contains a wakeword or phrase spoken by the target speaker. Because this task in inherently much more narrow compared to the detecting the wakeword or phrase from any speaker, the combination of the verifier model and base model can be quite effective.
+The custom verifier models are designed to be very lightweight and easy to train. For the current version of openWakeWord, the verifier models are simple logistic regression binary classifiers that take in the shared audio features from the openWakeWord preprocessing stage and return a score between 0 and 1 indicating whether the audio contains a wakeword or phrase spoken by the target speaker. Because this task is inherently much more narrow compared to the detecting the wakeword or phrase from any speaker, the combination of the verifier model and base model can be quite effective.
 
 Note that while the verifier model is focused on a target speaker, it is not intended to perform the task of speaker verification directly. Performance on this task may be adequate for certain use-case cases, but caution is recommended.
 
