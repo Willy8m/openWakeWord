@@ -52,11 +52,22 @@ CHUNK = args.chunk_size
 audio = pyaudio.PyAudio()
 mic_stream = audio.open(format=FORMAT, channels=CHANNELS, rate=RATE, input=True, frames_per_buffer=CHUNK)
 
+ww_model_path = "alexa2500015000100.onnx"
+ww_model_name = ww_model_path.split(".")[0]
+verifier_model_path = "alexa_verifier.pkl"
+custom_verifier_models = {ww_model_name: verifier_model_path}
+
 # Load pre-trained openwakeword models
 if args.model_path != "":
-    owwModel = Model(wakeword_models=[args.model_path], inference_framework=args.inference_framework)
+    print([args.model_path])
+    owwModel = Model(wakeword_models=[args.model_path],
+                     inference_framework=args.inference_framework,
+                     custom_verifier_models=custom_verifier_models)
 else:
-    owwModel = Model(inference_framework=args.inference_framework)
+    owwModel = Model(wakeword_models=[ww_model_path],
+                     inference_framework="onnx",
+                     custom_verifier_models=custom_verifier_models,
+                     custom_verifier_threshold=0.3)
 
 n_models = len(owwModel.models.keys())
 

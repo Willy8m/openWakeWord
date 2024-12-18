@@ -855,7 +855,7 @@ class mmap_batch_generator:
 # Function to remove empty rows from the end of a mmap array
 def trim_mmap(mmap_path):
     """
-    Trims blank rows from the end of a mmaped numpy array by creates new mmap array without the blank rows.
+    AA Trims blank rows from the end of a mmaped numpy array by creates new mmap array without the blank rows.
     Note that a copy is created and disk usage will briefly double as the function runs.
 
     Args:
@@ -884,7 +884,7 @@ def trim_mmap(mmap_path):
         else:
             mmap_file2[i:i+1024] = mmap_file1[i:i+1024].copy()
             mmap_file2.flush()
-
+    print("YOLO")
     # Remove old mmaped file
     os.remove(mmap_path)
 
